@@ -25,7 +25,8 @@
             TOTAL:
           </th>
           <th>
-            <%= cart_subtotal_cents / 100.0 %>
+            $<%= sprintf("%.2f",(cart_subtotal_cents / 100.00)) %>
+
           </th>
         </tr>
       </tfoot>
