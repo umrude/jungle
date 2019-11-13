@@ -5,13 +5,15 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
-    <p>Email:  <%= @order.email%></p>
+    <h3>Thank you for your order!</h3>
+    <br>
+    <p>A confirmation email has been sent to: <%= @order.email %></p>
     <p>Total:  <%=humanized_money_with_symbol @order.total_cents%></p>
-    <p>Your Order Summary: </p>
+    <h3>Your Order Summary: </h3>
     <% @order.line_items.each do |item| %>
         <%= render 'item', product: item.product, quantity: item[:quantity].to_i %>
     <% end %>
+    
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
