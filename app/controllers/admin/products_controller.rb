@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Admin::ProductsController < ApplicationController
-http_basic_authenticate_with :name => ENV['secret_user'], :password => ENV['secret_password']
+  http_basic_authenticate_with name: ENV['secret_user'], password: ENV['secret_password']
   def index
     @products = Product.order(id: :desc).all
   end
@@ -12,7 +14,7 @@ http_basic_authenticate_with :name => ENV['secret_user'], :password => ENV['secr
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to [:admin, :products], notice: 'Product created!'
+      redirect_to %i[admin products], notice: 'Product created!'
     else
       render :new
     end
@@ -21,7 +23,7 @@ http_basic_authenticate_with :name => ENV['secret_user'], :password => ENV['secr
   def destroy
     @product = Product.find params[:id]
     @product.destroy
-    redirect_to [:admin, :products], notice: 'Product deleted!'
+    redirect_to %i[admin products], notice: 'Product deleted!'
   end
 
   private
@@ -36,5 +38,4 @@ http_basic_authenticate_with :name => ENV['secret_user'], :password => ENV['secr
       :price
     )
   end
-
 end
