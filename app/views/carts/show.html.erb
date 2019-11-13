@@ -25,8 +25,7 @@
             TOTAL:
           </th>
           <th>
-            $<%= sprintf("%.2f",(cart_subtotal_cents / 100.00)) %>
-
+            <%= humanized_money_with_symbol cart_subtotal_cents / 100.0 %>
           </th>
         </tr>
       </tfoot>
