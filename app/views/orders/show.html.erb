@@ -9,6 +9,7 @@
     <br>
     <p>A confirmation email has been sent to: <%= @order.email %></p>
     <p>Total:  <%=humanized_money_with_symbol @order.total_cents%></p>
+    <br>
     <h3>Your Order Summary: </h3>
     <% @order.line_items.each do |item| %>
         <%= render 'item', product: item.product, quantity: item[:quantity].to_i %>
