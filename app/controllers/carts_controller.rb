@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CartsController < ApplicationController
+
+  before_filter :authorize
   def show; end
 
   def add_item
