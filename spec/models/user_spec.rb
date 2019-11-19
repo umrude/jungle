@@ -32,10 +32,16 @@ RSpec.describe User, type: :model do
       subject.password = 'ggeo'
       expect(subject).to_not be_valid
     end
+
+    context "should not have 2 users with same email" do
+      let! (:user2){User.create(name: "user2", email: "test@TEST.com", password: "12345", password_confirmation: "12345")}
+
+      it { is_expected.to_not be_valid }
+    end
   end
 
   describe '.authenticate_with_credentials' do
-    let!(:user) { described_class.create!(name: "Gabi", email: 'test@test.com', password: 'password', password_confirmation: 'password') }
+    let!(:user) { User.create!(name: "Gabi", email: 'test@test.com', password: 'password', password_confirmation: 'password') }
 
     it 'is valid with correct password' do
       result = User.authenticate_with_credentials('test@test.com', 'password')
