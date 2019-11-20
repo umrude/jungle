@@ -2,7 +2,7 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
-[!HomePage](https://gyazo.com/4fe1d9570d0cd5a7d08c7638d8df120f)
+!["Home Page"](https://raw.githubusercontent.com/umrude/jungle/master/screenshot.png)
 
 ## Setup
 
